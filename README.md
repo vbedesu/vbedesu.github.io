@@ -12,3 +12,5 @@ Features:
 - 5. No tracking scripts, or bloat. just plain ol' HTML.
 - 6. Can be used as a way to spread interesting news and/or information.
 - 7. it puts popular image boards to shame, you can't get "underage b&" on your platform of choice.
+
+waxxer es terrible
