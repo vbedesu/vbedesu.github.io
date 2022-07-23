@@ -1,0 +1,50 @@
+Jun 23 03:13:57 <walid>	Heya, I'm trying to compile webkit-gtk on portage but whenever I do that my computer slows down a lot for some reason, and by a lot is that other applications no longer respond and my mouse/cursor takes a few seconds to respond. is there any solution to this? even PORTAGE_NICENESS="19" doesn't help. I can send my make.conf if needed.
+Jun 23 03:14:41 <sam_>	walid: try the other stuff mentioned on https://wiki.gentoo.org/wiki/Portage_niceness wrt niceness. It's possible reducing MAKEOPTS will help but need what kurly said to be sure (it can be done per-pkg)
+Jun 23 03:15:30 <walid>	Thanks for the advice! I don't have swap though and I can't shrink my XFS partition so I don't know any ways of making a new swap partition. I could of have done it earlier but my friends told me it wasn't needed.
+Jun 23 03:16:14 <walid>	@kurly I'm going to recompile again and I'll try to get a copy of the logs. Thank you!
+Jun 23 03:18:06 <walid>	wgetpaste: command not found, do I have to install a package named wgetpaste?
+Jun 23 03:23:22 <walid>	Portage Information: http://dpaste.com/H8A3LJAP8
+Jun 23 03:23:24 <walid>	I hope that helps.
+Jun 23 03:26:47 <walid>	So I have to disable ccache? I thought it was useful for longer compiling speeds. aww :(
+Jun 23 03:27:04 <walid>	faster* oops.
+Jun 23 03:27:57 <walid>	it does make sense just for a few packages?
+Jun 23 03:28:50 <walid>	I'll try disabling ccache and see if that helps.
+Jun 23 03:29:05 <walid>	Thanks!
+Jun 23 05:11:54 <walid>	I managed to compile webkitgtk by tuning down my makeopts a lil bit, thanks to those who helped! :D
+Jul 03 03:24:49 *	walid_ (~walid@[censored]) has joined
+Jul 03 03:24:52 *	walid_ has quit (Remote host closed the connection)
+Jul 03 04:40:00 <walid>	Will my system get faster if I use a source kernel instead of a binary kernel like dist-kernel?
+Jul 03 04:41:19 <kurly>	walid: really unlikely but "It Depends"
+Jul 03 04:46:59 <walid>	Well, faster booting speeds I guess. and less overhead
+Jul 03 04:53:00 <walid>	So there is no need to use gentoo-sources if I can just use kernel-dist?
+Jul 03 05:07:51 *	walid has quit (Read error: Connection reset by peer)
+Jul 03 05:13:32 *	walid (~walid@[censored]) has joined
+Jul 03 05:16:40 *	walid has quit (Client Quit)
+Jul 03 05:41:12 <walid_>	I'm trying to compile linux-5.14.41-gentoo but for some reason it's erroring out - https://dpaste.com/ANGNENVD7
+Jul 03 05:43:07 <kurly>	walid_: not much to go on there; what'd you do to your config?
+Jul 03 05:43:44 <rx80>	walid_: could also be weird custom C/LD flags?
+Jul 03 05:44:31 <walid_>	I disabled SGI Ultraviolet and a few other things
+Jul 03 05:44:55 <rx80>	walid_: through menuconfig?
+Jul 03 05:45:27 <walid_>	yup
+Jul 03 05:45:58 <rx80>	walid_: and you tried a "make clean", and then building again?
+Jul 03 05:48:06 <walid_>	nope, I haven't tried yet but I unfortunately deleted my .config file before :(
+Jul 03 05:48:13 <walid_>	welp, gotta do the reconfiguring again
+Jul 03 05:49:05 <eof>	walid_: i think typically /proc/config.gz should be available by default unless you disabled that
+Jul 03 06:02:57 <tdr>	walid_ need some kernel help?
+Jul 03 06:15:22 <walid_>	@luzy What GPU/Graphics Card do you have? are you sure you have enabled support for it in the kernel?
+Jul 03 06:15:37 <walid_>	@tdr he has some issue with Xorg not starting properly
+Jul 03 06:15:41 <luzy>	walid_, siliconmotion sm710
+Jul 16 07:47:16 <walid>	morning
+Jul 16 07:48:51 <walid>	Do you guys know a faster way to compile packages without upgrading the hardware? I tried ccache but some people out there told me that it has a cost or something and that it doesn't help that much if I'm on like 8 gigabytes of ram
+Jul 16 07:49:04 <walid>	I have a 4 core and 8 thread processor
+Jul 16 07:49:36 <walid>	compilling >200 packages takes a while, like 2 to 4 hours or so
+Jul 16 07:49:55 <walid>	but I'm not too sure on that, I haven't ran a time test
+Jul 16 07:50:00 <walid>	probably it takes longer than that
+Jul 16 07:51:20 <Phoenix591>	walid: well... for SOME packages, you can build on tmpfs, but with only 8gb you certainly can't do all of them
+Jul 16 07:51:48 <walid>	I guess 8 gb of ram isn't enough :(
+Jul 16 07:52:01 <walid>	hopefully I can upgrade my laptop to 16 gigs...
+Jul 16 07:52:12 <Phoenix591>	walid: its on the lowend these days, https://wiki.gentoo.org/wiki/Portage_TMPDIR_on_tmpfs
+Jul 20 23:08:34 <walid>	how to install gentoo on ps2
+Jul 21 00:18:33 <walid>	how to install gentoo on ps2
+Jul 21 00:25:29 <username234>	walid: same way as any other system I suppose. That's assuming the PS2's CPU is supported.
+Jul 21 00:27:56 <tdr>	walid, its a mips cpu, supported by linux, but building on it wouldnt be the most enjoyable since its 200-300 mhz or something and 32 MB memory
